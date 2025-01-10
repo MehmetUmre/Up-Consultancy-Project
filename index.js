@@ -12,8 +12,8 @@ const app = document.getElementById("app");
         rememberMeText: "Remember me",
         signInButtonText: "Sign in",
         googleButtonText: "Or sign in with Google",
-        footerText: "Don't have an account?",
-        footerLinkText: "Sign up now",
+        footerText: "Already have a membership?",
+        footerLinkText: "Log in now",
         footerLinkHref: "#",
         imageAlt:
           "Two business professionals in a meeting, one wearing a navy suit and the other in casual attire, reviewing documents and data on a laptop with coffee cups on the table",
