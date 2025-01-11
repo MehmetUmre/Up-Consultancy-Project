@@ -32,3 +32,38 @@ menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     menuToggle.classList.toggle('active');
 });
+
+/*----------------------------------------*/
+const pageData = {
+    badge: {
+        text: "📢 Started for free!"
+    },
+    title: "Consult your business with us and get benefits and 12 hour service!",
+    description: "We can have professional experts provide consulting services for a company on topics and subjects that are required for you to meet your business objectives.",
+    emailPlaceholder: "Your email",
+    buttonText: "Start Now",
+    image: {
+        src: "assets/[UP-1]/image (1).svg",
+        alt: "Business meeting scene with three professionals in a modern office setting. They are seated at a table with a laptop, documents, and a coffee cup. The space features modern furniture and a small decorative plant. The professionals are engaged in discussion, with one person taking notes while others review materials."
+    }
+};
+
+// Function to render the content
+function renderContent() {
+    const appContainer = document.getElementById('app');
+    appContainer.innerHTML = `
+        <div class="started-badge">${pageData.badge.text}</div>
+        <h1>${pageData.title}</h1>
+        <p>${pageData.description}</p>
+        <div class="email-form">
+            <input type="email" placeholder="${pageData.emailPlaceholder}">
+            <button class="start-button">${pageData.buttonText}</button>
+        </div>
+        <div class="image-container">
+            <img src="${pageData.image.src}" alt="${pageData.image.alt}" width="800" height="400">
+        </div>
+    `;
+}
+
+// Call the render function when the page loads
+window.onload = renderContent;
