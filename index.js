@@ -14,10 +14,10 @@ const app = document.getElementById("app");
         googleButtonText: "Or sign in with Google",
         footerText: "Already have a membership?",
         footerLinkText: "Log in now",
-        footerLinkHref: "#",
+        footerLinkHref: "/Log-in.html",
         imageAlt:
           "Two business professionals in a meeting, one wearing a navy suit and the other in casual attire, reviewing documents and data on a laptop with coffee cups on the table",
-        imageUrl: "assets/image.svg",
+        imageUrl: "assets/[UP-26]/image.svg",
       };
 
       const container = document.createElement("div");
@@ -133,7 +133,7 @@ const app = document.getElementById("app");
 
       const googleIcon = document.createElement("img");
       googleIcon.src =
-        "assets/Other-Pay-Method.svg";
+        "assets/[UP-26]/Other-Pay-Method.svg";
       googleIcon.alt = "Google logo";
       googleIcon.width = 18;
       googleIcon.height = 18;

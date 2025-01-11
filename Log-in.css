@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 1440px;
+    height: 750.5px;
+}
+
+.left-section {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.right-section {
+    width: 400px;
+    padding: 40px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    margin-top: 100px;
+}
+
+.logo {
+    margin-top: 19px;
+    color: var(--Primary, #26BB74);
+    font-family: "Plus Jakarta Sans";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: relative;
+    bottom: 50px;
+}
+
+h1 {
+    margin-top: 15px;
+    color: #26BB74;
+    font-family: "Plus Jakarta Sans";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: relative;
+    bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 310px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 0.5px solid var(--black-100-e-5-e-5-e-5, #E5E5E5);
+    background: var(--black-50-f-2-f-2-f-2, #F2F2F2);
+}
+
+input[type="password"] {
+    padding-right: 30px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+    cursor: pointer;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    font-size: 15px;
+    color: #757575;
+    color: var(--black-9001-a-1-a-1-a, #1A1A1A);
+    font-feature-settings: 'liga' off, 'clig' off;
+    /* Checkbox */
+   font-family: "SF Pro Display";
+   font-style: normal; 
+   font-weight: 400;
+   line-height: 20px; 
+   letter-spacing: 0.3px;
+}
+
+.remember-me input[type="checkbox"] {
+    display: none;
+}
+
+.switcher {
+    width: 36px;
+    height: 20px;
+    background-color: #D1D5DB;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 8px;
+}
+
+.switcher::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.remember-me input[type="checkbox"]:checked + .switcher {
+    background-color: #22C55E;
+}
+
+.remember-me input[type="checkbox"]:checked + .switcher::after {
+    transform: translateX(16px);
+}
+
+.forgot-password {
+    font-size: 12px;
+    text-decoration: none;
+    color: #26BB74;
+    text-align: right;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 0.3px;
+    position: relative;
+    top: 9px;
+}
+
+.login-btn {
+    width: 310px;
+    color: white;
+    font-family: 'Inter';
+    border: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+    margin-top: 24px;
+    display: flex;
+    height: 50px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: var(--Primary, #26BB74);
+    margin-bottom: 10px;
+}
+
+.google-btn {
+    width: 310px;
+    height: 40px;
+    padding: 12px;
+    background-color: #333333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 0.3px;
+    color: var(--white-ffffff, #FFF);
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 24px;
+    color: var(--black-9001-a-1-a-1-a, #1A1A1A);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.signup-text a {
+    text-decoration: none;
+    color: #26BB74;
+    text-align: right;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+
+
