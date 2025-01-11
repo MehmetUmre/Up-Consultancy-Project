@@ -244,6 +244,32 @@ input[type="password"] {
     font-weight: 400;
     line-height: 20px;
 }
+@media (max-width: 480px) {
+    .main-container {
+      width: 100%;
+    }
+
+    .right-section {
+      padding: 15px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 10px;
+    }
+    .eye-icon{
+        position: relative;
+        right: 35px;
+        top: 9px;
+    }
+    .forgot-password{
+        right: 60px;
+    }
+
+    .login-btn {
+      padding: 10px;
+    }
+  }
 
 
 
