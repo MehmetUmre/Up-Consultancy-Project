@@ -67,3 +67,52 @@ function renderContent() {
 
 // Call the render function when the page loads
 window.onload = renderContent;
+
+/*--------------------------------*/
+const services = [
+    {
+        icon: "fas fa-clock",
+        title: "Fast workmanship, precise consultation",
+        description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+    },
+    {
+        icon: "fas fa-dollar-sign",
+        title: "Lower prices with lots of variety",
+        description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+    },
+    {
+        icon: "fas fa-chart-bar",
+        title: "Detailed analysis of sales graph data",
+        description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+    },
+    {
+        icon: "fas fa-sitemap",
+        title: "Management and strategy consultant",
+        description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+    },
+    {
+        icon: "fas fa-comment-alt",
+        title: "Communicative with ease of discussion",
+        description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+    },
+    {
+        icon: "fas fa-check-circle",
+        title: "Open for feedback and review",
+        description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+    }
+];
+
+const cardGrid = document.getElementById('card-grid');
+
+services.forEach(service => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+        <div class="card-icon"><i class="${service.icon}"></i></div>
+        <h3 class="card-title">${service.title}</h3>
+        <p class="card-description">${service.description}</p>
+    `;
+
+    cardGrid.appendChild(card);
+});
