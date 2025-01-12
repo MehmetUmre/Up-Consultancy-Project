@@ -9,10 +9,10 @@ const navData = {
     cta: { name: "Get Started", href: "#" }
 };
 
-// Generate the navigation bar dynamically
+
 const navbar = document.getElementById("navbar");
 
-// Add the inline structure
+
 navbar.innerHTML = `
     <a class="logo" href="#">${navData.logo}</a>
     <div class="nav-links">
@@ -24,7 +24,7 @@ navbar.innerHTML = `
     </div>
 `;
 
-// Add event listener for menu toggle
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -48,7 +48,7 @@ const pageData = {
     }
 };
 
-// Function to render the content
+
 function renderContent() {
     const appContainer = document.getElementById('app');
     appContainer.innerHTML = `
@@ -65,7 +65,7 @@ function renderContent() {
     `;
 }
 
-// Call the render function when the page loads
+
 window.onload = renderContent;
 
 /*--------------------------------*/
@@ -115,4 +115,69 @@ services.forEach(service => {
     `;
 
     cardGrid.appendChild(card);
+});
+
+ /*--------------------------------*/
+ const experienceData = {
+    tagline: "Why Us?",
+    title: "We Have a Lot of <span class='highlight'>Experience</span> in Work",
+    summary: "UpConslt as a leading business consulting place, we have helped many small to medium and large companies to help their business",
+    achievements: [
+        { value: 1200, metric: "Projects Completed" },
+        { value: 20, metric: "Year of Experience" },
+        { value: 55, metric: "New Brand" },
+        { value: 14, metric: "Awwards Won" }
+    ]
+};
+
+
+document.getElementById('tagline').textContent = experienceData.tagline;
+document.querySelector('.why-us h1').innerHTML = experienceData.title;
+document.getElementById('description').textContent = experienceData.summary;
+
+
+const statsContainer = document.getElementById('stats-container');
+experienceData.achievements.forEach((achievement, index) => {
+    const statItem = document.createElement('div');
+    statItem.className = 'stat-item';
+    statItem.style.transitionDelay = `${0.6 + index * 0.2}s`;
+    statItem.innerHTML = `
+        <div class="number">${achievement.value}</div>
+        <div class="label">${achievement.metric}</div>
+    `;
+    statsContainer.appendChild(statItem);
+});
+
+
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    setTimeout(() => {
+        document.querySelector('.why-us').classList.add('animate');
+        document.getElementById('description').classList.add('animate');
+        document.querySelectorAll('.stat-item').forEach(item => {
+            item.classList.add('animate');
+        });
+    }, 100);
+});
+
+
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+const numberElements = document.querySelectorAll('.number');
+numberElements.forEach((numberElement, index) => {
+    const finalValue = experienceData.achievements[index].value;
+    setTimeout(() => {
+        animateValue(numberElement, 0, finalValue, 2000);
+    }, 1000 + index * 200);
 });
