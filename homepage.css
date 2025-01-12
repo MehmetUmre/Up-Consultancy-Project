@@ -284,6 +284,7 @@
             font-style: normal;
             font-weight: 500;
             line-height: normal;
+            
         }
         .section-title {
             margin-bottom: 30px;
@@ -384,5 +385,170 @@
             }
             .card-description {
                 font-size: 13px;
+            }
+        }
+
+         /*--------------------------------*/
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .why-us {
+            transform: translateY(20px);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            margin: 0;
+            padding: 20px 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            color: var(--Primary, #26BB74);
+            font-family: 'Inter';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            flex-direction: column;
+            display: flex;
+            gap: 10px;
+        }
+
+        .why-us h1 {
+            margin-top: 10px;
+            color: var(--Black, #000);
+            text-align: center;
+            font-family: "Plus Jakarta Sans";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .why-us h1 .highlight {
+            color: #26BB74;
+        }
+
+        .description {
+            max-width: 670px;
+            margin: 0 auto 40px auto;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            transition-delay: 0.4s;
+            align-self: stretch;
+            color: var(--Light-Dark, #6C757D);
+            text-align: center;
+            font-family: 'Inter';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px; 
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 160px;
+            align-self: stretch;
+        }
+
+        .stat-item {
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .number {
+            margin-bottom: 8px;
+            color: var(--Primary, #26BB74);
+            text-align: center;
+            font-family: "Plus Jakarta Sans";
+            font-size: 34px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .label {
+            color: var(--Light-Dark, #6C757D);
+            text-align: center;
+            font-family: 'Inter';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        @media (max-width:1090px) {
+            .why-us h1 {
+                font-size: 28px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .stats-container {
+                gap: 40px;
+            }
+
+            .number {
+                font-size: 28px;
+            }
+
+            .label {
+                font-size: 12px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .why-us h1 {
+                font-size: 28px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .stats-container {
+                gap: 40px;
+            }
+
+            .number {
+                font-size: 28px;
+            }
+
+            .label {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+    
+            }
+            .why-us h1 {
+                font-size: 24px;
+            }
+
+            .stats-container {
+                gap: 20px;
+            }
+
+            .stat-item {
+                flex-basis: 45%;
+            }
+
+            .number {
+                font-size: 24px;
             }
         }
