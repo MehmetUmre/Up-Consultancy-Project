@@ -249,3 +249,32 @@ const data = {
   setTimeout(() => {
     document.querySelector(".image-section").classList.add("visible");
   }, 1200);
+
+  /*--------------------------------*/
+  const featureData = {
+    tag: "More Features",
+    title: "Take Advantage of The Features You Get From Us!",
+    description:
+      "Analysis describes the features, advantages and benefits of a product, and how they work together to help differentiate a product within the market.",
+    buttonText: "Get Started",
+    imageSrc:
+      "assets/[UP-16]/image (4).svg",
+    imageAlt:
+      "Two people in an office setting looking at a laptop screen showing a video conference call. One person is standing and one is sitting at a wooden desk with a glass of water nearby. The laptop appears to be showing multiple participants in a virtual meeting.",
+  };
+
+  
+  document.getElementById("feature-tag").textContent = featureData.tag;
+  document.getElementById("feature-title").textContent = featureData.title;
+  document.getElementById("feature-description").textContent =
+    featureData.description;
+  document.getElementById("feature-button").textContent =
+    featureData.buttonText;
+  document.getElementById("feature-image").src = featureData.imageSrc;
+  document.getElementById("feature-image").alt = featureData.imageAlt;
+
+  
+  window.addEventListener("load", () => {
+    const showcase = document.getElementById("feature-showcase");
+    showcase.classList.add("visible");
+  });
