@@ -181,3 +181,71 @@ numberElements.forEach((numberElement, index) => {
         animateValue(numberElement, 0, finalValue, 2000);
     }, 1000 + index * 200);
 });
+
+/*--------------------------------*/
+const data = {
+    label: "Features",
+    title: "What are The Best Features You Get?",
+    description:
+      "With our integrated CRM, project management, collaboration and invoicing capabilities, you can manage every aspect of your business.",
+    features: [
+      {
+        icon: "fas fa-headphones",
+        title: "Directly guided by professionals",
+        description:
+          "General advice on professional practice in conference interpreting, with the aim of.",
+      },
+      {
+        icon: "fa fa-video-camera",
+        title: "Monitor business changes",
+        description:
+          "For assessing your change management success. It ease recording and assessing data.",
+      },
+      {
+        icon: "fa fa-rocket",
+        title: "Full consultation",
+        description:
+          "Consultees can take advantage of the full consultation period to prepare considered.",
+      },
+    ],
+  };
+
+  document.querySelector(".section-tag").textContent = data.label;
+  document.querySelector(".main-heading").textContent = data.title;
+  document.querySelector(".intro-text").textContent = data.description;
+
+  const featureList = document.querySelector(".feature-list");
+
+  data.features.forEach((feature, index) => {
+    const featureBox = document.createElement("div");
+    featureBox.classList.add("feature-box");
+
+    const featureIcon = document.createElement("div");
+    featureIcon.classList.add("feature-icon");
+    featureIcon.innerHTML = `<i class="${feature.icon}"></i>`;
+
+    const featureDetails = document.createElement("div");
+    featureDetails.classList.add("feature-details");
+
+    const featureTitle = document.createElement("h3");
+    featureTitle.textContent = feature.title;
+
+    const featureDescription = document.createElement("p");
+    featureDescription.textContent = feature.description;
+
+    featureDetails.appendChild(featureTitle);
+    featureDetails.appendChild(featureDescription);
+    featureBox.appendChild(featureIcon);
+    featureBox.appendChild(featureDetails);
+
+    featureList.appendChild(featureBox);
+
+    setTimeout(() => {
+      featureBox.style.opacity = "1";
+      featureBox.style.transform = "translateY(0)";
+    }, 800 + index * 200);
+  });
+
+  setTimeout(() => {
+    document.querySelector(".image-section").classList.add("visible");
+  }, 1200);
