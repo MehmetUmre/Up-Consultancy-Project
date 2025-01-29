@@ -333,3 +333,41 @@ pricingPlans.forEach(plan => {
 
     pricingContainer.appendChild(card);
 });
+
+/*--------------------------------*/
+const faqData = [
+    {
+        question: "What is subscription pricing or a subscription-based pricing model?",
+        answer: "Subscription pricing is a business model where customers pay a recurring fee at regular intervals (e.g., monthly or annually) to access a product or service. This model provides ongoing value to customers and a steady revenue stream for businesses."
+    },
+    {
+        question: "Why adopt a subscription business model?",
+        answer: "One, it attracts more customers with its lower entry point (e.g. paying $15 monthly vs. $150 in advance). Two, it offers predictable revenue for businesses. Three, it allows businesses to build stronger, more valuable relationships with its customers."
+    },
+    {
+        question: "How does a subscription management model work?",
+        answer: "A subscription management model involves setting up recurring billing cycles, managing customer accounts, handling upgrades/downgrades, and providing ongoing value to retain subscribers. It often includes features like automated payments, usage tracking, and customer support systems."
+    }
+];
+
+const faqContainer = document.getElementById('faq-container');
+
+faqData.forEach((item, index) => {
+    const faqItem = document.createElement('div');
+    faqItem.classList.add('faq-item');
+    if (index === 1) faqItem.classList.add('active');
+
+    faqItem.innerHTML = `
+        <div class="faq-question">
+            ${item.question}
+            <span class="arrow">›</span>
+        </div>
+        <div class="faq-answer">${item.answer}</div>
+    `;
+
+    faqItem.addEventListener('click', () => {
+        faqItem.classList.toggle('active');
+    });
+
+    faqContainer.appendChild(faqItem);
+});
