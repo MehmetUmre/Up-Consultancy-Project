@@ -328,7 +328,7 @@ pricingPlans.forEach(plan => {
         <ul class="features">
             ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
         </ul>
-        <button class="get-started">Get Started</button>
+        <button class="get-started-pricing">Get Started</button>
     `;
 
     pricingContainer.appendChild(card);

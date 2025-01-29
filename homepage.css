@@ -1011,7 +1011,7 @@
         line-height: 24px; 
     }
 
-    .get-started {
+    .get-started-pricing {
         background: #26BB74;
         border: none;
         border-radius: 6px;
@@ -1029,8 +1029,9 @@
         line-height: normal;
     }
 
-    .get-started:hover {
+    .get-started-pricing:hover {
         background: #6C757D;
+        transform: scale(1.1);
     }
 
     /*--------------------------------*/
