@@ -278,3 +278,58 @@ const data = {
     const showcase = document.getElementById("feature-showcase");
     showcase.classList.add("visible");
   });
+  /*--------------------------------*/
+  const pricingPlans = [
+    {
+        name: "Team",
+        price: "$50",
+        duration: "/mth",
+        description: "Consultation guidance from certified professionals.",
+        features: [
+            "Professional expert guidance",
+            "12 hours discussion",
+            "Live view of business"
+        ]
+    },
+    {
+        name: "Agency",
+        price: "$150",
+        duration: "/mth",
+        description: "The best consulting guidance, discussion anytime.",
+        features: [
+            "Professional expert guidance",
+            "18 hours discussion",
+            "Live view of business"
+        ]
+    },
+    {
+        name: "Enterprise",
+        price: "$500",
+        duration: "/mth",
+        description: "Full guidance consultation, get access to all features.",
+        features: [
+            "Professional expert guidance",
+            "24 hours discussion",
+            "Live view of business"
+        ]
+    }
+];
+
+const pricingContainer = document.getElementById('pricing-container');
+
+pricingPlans.forEach(plan => {
+    const card = document.createElement('div');
+    card.className = 'pricing-card';
+
+    card.innerHTML = `
+        <div class="plan-name">${plan.name}</div>
+        <div class="price">${plan.price}<span>${plan.duration}</span></div>
+        <div class="plan-description">${plan.description}</div>
+        <ul class="features">
+            ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
+        </ul>
+        <button class="get-started">Get Started</button>
+    `;
+
+    pricingContainer.appendChild(card);
+});
