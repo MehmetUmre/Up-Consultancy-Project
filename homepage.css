@@ -1120,4 +1120,162 @@
       transform: rotate(180deg);
       color: #26BB74;
   }
- 
+  /*--------------------------------*/
+  
+.footer-section{
+  width: 1070px;
+  padding: 70px;
+  margin: 0 auto;
+  
+}
+.cosmic-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+   
+}
+
+.nebula-section {
+    max-width: 300px;
+    margin-bottom: 30px;
+   
+}
+.footer-description{
+  color: var(--Dark, #212529);
+  font-family: 'Inter';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  width: 100%;
+}
+.supernova-logo {
+    margin-bottom: 15px;
+    color: var(--Primary, #26BB74);
+    font-family: "Plus Jakarta Sans";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+   
+}
+
+.stardust-description {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    
+}
+
+.galaxy-section {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    
+}
+
+.constellation-column {
+   margin-right: 20px;
+}
+
+.starcluster-title {
+    margin-bottom: 15px;
+    color: var(--Black, #000);
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; 
+    
+}
+
+.star-system-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.star-system-list li {
+    margin-bottom: 10px;
+}
+
+.star-system-list a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--Dark, #212529);
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; 
+    
+}
+
+.star-system-list a:hover {
+    color: #26BB74;
+}
+
+.blackhole-footer {
+    margin-top: 20px;
+    position: relative;
+    left: 40%;
+    color: var(--Light-Dark, #6C757D);
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; 
+}
+
+.quasar-highlight {
+    color: var(--Primary, #26BB74);
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+@media (max-width: 768px) {
+    .footer-section{
+      position: relative;
+      right: 50px;
+    }
+    .footer-description{
+      width: 240px;
+    }
+    
+    .cosmic-container {
+        flex-direction: column;
+    }
+
+    .nebula-section {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .galaxy-section {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .constellation-column {
+        margin-right: 0;
+        width: calc(50% - 10px);
+    }
+    .blackhole-footer{
+      position: relative;
+      left: -1%;
+    }
+}
+
+@media (max-width: 480px) {
+    .galaxy-section {
+        flex-direction: column;
+    }
+
+    .constellation-column {
+        width: 100%;
+    }
+}
