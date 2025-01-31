@@ -371,3 +371,38 @@ faqData.forEach((item, index) => {
 
     faqContainer.appendChild(faqItem);
 });
+/*--------------------------------*/
+const cosmicData = {
+    logo: "UpConslt",
+    description: "We are the best business consulting services that have been operating for more than 20 years, handling many well-known brands",
+    menus: [
+        {
+            title: "Services",
+            items: ["Business Start-up", "Small Business", "Digital Business"]
+        },
+        {
+            title: "Info",
+            items: ["Client", "Event", "Careers"]
+        },
+        {
+            title: "Contact",
+            items: ["South Jakarta - Indonesia", "+0828-2267-9981", "contact@upconslt.com"]
+        }
+    ],
+    footer: "© 2022 UpConslt. All rights reserved."
+};
+
+document.getElementById('logo').textContent = cosmicData.logo;
+document.getElementById('description').textContent = cosmicData.description;
+document.getElementById('menuContainer').innerHTML = cosmicData.menus.map(menu => `
+    <div class="constellation-column">
+        <div class="starcluster-title">${menu.title}</div>
+        <ul class="star-system-list">
+            ${menu.items.map(item => `<li><a href="#">${item}</a></li>`).join('')}
+        </ul>
+    </div>
+`).join('');
+document.getElementById('footer').innerHTML = cosmicData.footer.replace(
+    "UpConslt",
+    '<span class="quasar-highlight">UpConslt</span>'
+);
