@@ -157,3 +157,48 @@ faqData.forEach((item, index) => {
 
     faqContainer.appendChild(faqItem);
 });
+
+/*--------------------------------*/
+
+const formData = {
+    contactText: "Contact",
+    title: "Let us know how we can help you",
+    fields: [
+        { type: "text", placeholder: "Your Name" },
+        { type: "email", placeholder: "Email" },
+        { type: "textarea", placeholder: "Message" }
+    ],
+    buttonText: "Leave us a Message"
+};
+
+function renderForm() {
+    const app = document.getElementById('app');
+    app.innerHTML = `
+        <div class="contact-section">
+        <div class="contact-text">${formData.contactText}</div>
+        <h1 class="form-title">${formData.title}</h1>
+        </div>
+        
+        <form id="contactForm">
+            <div class="form-row">
+                <div class="form-column">
+                    <input type="${formData.fields[0].type}" placeholder="${formData.fields[0].placeholder}">
+                </div>
+                <div class="form-column">
+                    <input type="${formData.fields[1].type}" placeholder="${formData.fields[1].placeholder}">
+                </div>
+            </div>
+            
+            <textarea placeholder="${formData.fields[2].placeholder}"></textarea>
+            
+            <button type="submit" class="submit-button">${formData.buttonText}</button>
+        </form>
+    `;
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+    });
+}
+
+renderForm();

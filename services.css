@@ -383,3 +383,90 @@ body {
       transform: rotate(180deg);
       color: #26BB74;
   }
+
+  /*--------------------------------*/
+ 
+  .contact-container {
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 40px;
+}
+.contact-section{
+    margin: 0 auto;
+    text-align: center;
+}
+.contact-text {
+    margin-bottom: 8px;
+    color: #26BB74;
+    font-family: 'Inter';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form-title {
+    margin-bottom: 30px;
+    color: var(--Black, #000);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    color: #6C757D;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; 
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-column {
+    flex: 1;
+}
+
+.submit-button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 28px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--Primary, #26BB74);
+    color: var(--White, #FFF);
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.submit-button::after {
+    content: "→";
+    font-size: 18px;
+    
+}
