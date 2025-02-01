@@ -202,3 +202,36 @@ function renderForm() {
 }
 
 renderForm();
+
+/*--------------------------------*/
+const contactInfo = {
+    contactInfoTitle: "Contact Info",
+    contactInfoHeadline: "We are always<br>happy to assist you",
+    emailTitle: "Email Address",
+    emailAddress: "help@info.com",
+    assistanceHoursTitle: "Assistance hours:",
+    assistanceHours: "Monday - Friday 6 am to<br>8 pm EST",
+    numberTitle: "Number",
+    phoneNumber: "(808) 998-34256"
+};
+
+document.getElementById('contactInfoTitle').innerHTML = contactInfo.contactInfoTitle;
+document.getElementById('contactInfoHeadline').innerHTML = contactInfo.contactInfoHeadline;
+document.getElementById('emailTitle').innerHTML = contactInfo.emailTitle;
+document.getElementById('emailAddress').innerHTML = contactInfo.emailAddress;
+document.getElementById('emailAssistanceHoursTitle').innerHTML = contactInfo.assistanceHoursTitle;
+document.getElementById('emailAssistanceHours').innerHTML = contactInfo.assistanceHours;
+document.getElementById('numberTitle').innerHTML = contactInfo.numberTitle;
+document.getElementById('phoneNumber').innerHTML = contactInfo.phoneNumber;
+document.getElementById('numberAssistanceHoursTitle').innerHTML = contactInfo.assistanceHoursTitle;
+document.getElementById('numberAssistanceHours').innerHTML = contactInfo.assistanceHours;
+
+
+document.getElementById('emailAddress').addEventListener('click', function() {
+    window.location.href = 'mailto:' + contactInfo.emailAddress;
+});
+
+
+document.getElementById('phoneNumber').addEventListener('click', function() {
+    window.location.href = 'tel:' + contactInfo.phoneNumber.replace(/[()-\s]/g, '');
+});
