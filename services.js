@@ -235,3 +235,69 @@ document.getElementById('emailAddress').addEventListener('click', function() {
 document.getElementById('phoneNumber').addEventListener('click', function() {
     window.location.href = 'tel:' + contactInfo.phoneNumber.replace(/[()-\s]/g, '');
 });
+
+/*--------------------------------*/
+
+const newsletterData = {
+    title: "Subscribe to our Newsletter",
+    description: "Subscribe for updates! Stay informed about the latest investor updates, financial results, and announcements by subscribing to our newsletter.",
+    inputPlaceholder: "Enter your email",
+    buttonText: "Subscribe"
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const newsletterTitle = document.getElementById('newsletterTitle');
+    const newsletterDescription = document.getElementById('newsletterDescription');
+    const newsletterInput = document.getElementById('newsletterInput');
+    const newsletterButton = document.getElementById('newsletterButton');
+
+    newsletterTitle.textContent = newsletterData.title;
+    newsletterDescription.textContent = newsletterData.description;
+    newsletterInput.placeholder = newsletterData.inputPlaceholder;
+    newsletterButton.textContent = newsletterData.buttonText;
+
+    newsletterButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (newsletterInput.value) {
+            alert(`Thank you for subscribing with: ${newsletterInput.value}`);
+            newsletterInput.value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    });
+});
+
+/*--------------------------------*/
+const cosmicData = {
+    logo: "UpConslt",
+    menus: [
+        {
+            title: "Services",
+            items: ["Business Start-up", "Small Business", "Digital Business"]
+        },
+        {
+            title: "Info",
+            items: ["Client", "Event", "Careers"]
+        },
+        {
+            title: "Contact",
+            items: ["South Jakarta - Indonesia", "+0828-2267-9981", "contact@upconslt.com"]
+        }
+    ],
+    footer: "© 2022 UpConslt. All rights reserved."
+};
+
+document.getElementById('logo').textContent = cosmicData.logo;
+document.getElementById('description').textContent = cosmicData.description;
+document.getElementById('menuContainer').innerHTML = cosmicData.menus.map(menu => `
+    <div class="constellation-column">
+        <div class="starcluster-title">${menu.title}</div>
+        <ul class="star-system-list">
+            ${menu.items.map(item => `<li><a href="#">${item}</a></li>`).join('')}
+        </ul>
+    </div>
+`).join('');
+document.getElementById('footer').innerHTML = cosmicData.footer.replace(
+    "UpConslt",
+    '<span class="quasar-highlight">UpConslt</span>'
+);
