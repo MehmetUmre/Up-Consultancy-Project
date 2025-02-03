@@ -1,12 +1,12 @@
 const navData = {
     logo: "UpConslt",
     links: [
-        { name: "Services", href: "#" },
-        { name: "Pricing", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Login", href: "#" },
+        { name: "Services", href: "services.html" },
+        { name: "Pricing", href: "pricing.html" },
+        { name: "Blog", href: "blog.html" },
+        { name: "Login", href: "Log-in.html" },
     ],
-    cta: { name: "Get Started", href: "#" }
+    cta: { name: "Get Started", href: "Log-in.html" }
 };
 
 

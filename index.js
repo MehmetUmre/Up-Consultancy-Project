@@ -1,159 +1,408 @@
-const app = document.getElementById("app");
+const navData = {
+  logo: "UpConslt",
+  links: [
+      { name: "Services", href: "services.html" },
+      { name: "Pricing", href: "pricing.html" },
+      { name: "Blog", href: "blog.html" },
+      { name: "Login", href: "Log-in.html" },
+  ],
+  cta: { name: "Get Started", href: "Log-in.html" }
+};
 
-      const data = {
-        logo: "UpConslt",
-        title: "Sign up",
-        formFields: [
-          { placeholder: "Name", type: "text" },
-          { placeholder: "Phone number", type: "text" },
-          { placeholder: "Email", type: "email" },
-        ],
-        forgotPasswordText: "Forgot password?",
-        rememberMeText: "Remember me",
-        signInButtonText: "Sign in",
-        googleButtonText: "Or sign in with Google",
-        footerText: "Already have a membership?",
-        footerLinkText: "Log in now",
-        footerLinkHref: "/Log-in.html",
-        imageAlt:
-          "Two business professionals in a meeting, one wearing a navy suit and the other in casual attire, reviewing documents and data on a laptop with coffee cups on the table",
-        imageUrl: "assets/[UP-26]/image.svg",
-      };
 
-      const container = document.createElement("div");
-      container.className = "container";
+const navbar = document.getElementById("navbar");
 
-      const imageSection = document.createElement("div");
-      imageSection.className = "image-section";
-      imageSection.style.backgroundImage = `url(${data.imageUrl})`;
-      imageSection.setAttribute("alt", data.imageAlt);
 
-      const formSection = document.createElement("div");
-      formSection.className = "form-section";
+navbar.innerHTML = `
+  <a class="logo" href="#">${navData.logo}</a>
+  <div class="nav-links">
+      ${navData.links.map(link => `<a href="${link.href}">${link.name}</a>`).join('')}
+  </div>
+  <div class="right-section">
+      <div class="menu-toggle">☰</div>
+      <a class="get-started" href="${navData.cta.href}">${navData.cta.name}</a>
+  </div>
+`;
 
-      const logo = document.createElement("div");
-      logo.className = "logo";
-      logo.textContent = data.logo;
 
-      const title = document.createElement("h1");
-      title.textContent = data.title;
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-      const form = document.createElement("form");
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+});
 
-      data.formFields.forEach((field) => {
-        const formGroup = document.createElement("div");
-        formGroup.className = "form-group";
+/*----------------------------------------*/
+const pageData = {
+  badge: {
+      text: "📢 Started for free!"
+  },
+  title: "Consult your business with us and get benefits and 12 hour service!",
+  description: "We can have professional experts provide consulting services for a company on topics and subjects that are required for you to meet your business objectives.",
+  emailPlaceholder: "Your email",
+  buttonText: "Start Now",
+  image: {
+      src: "assets/[UP-1]/image (1).svg",
+      alt: "Business meeting scene with three professionals in a modern office setting. They are seated at a table with a laptop, documents, and a coffee cup. The space features modern furniture and a small decorative plant. The professionals are engaged in discussion, with one person taking notes while others review materials."
+  }
+};
 
-        const input = document.createElement("input");
-        input.type = field.type;
-        input.placeholder = field.placeholder;
-        input.required = true;
 
-        formGroup.appendChild(input);
-        form.appendChild(formGroup);
+function renderContent() {
+  const appContainer = document.getElementById('app');
+  appContainer.innerHTML = `
+      <div class="started-badge">${pageData.badge.text}</div>
+      <h1>${pageData.title}</h1>
+      <p>${pageData.description}</p>
+      <div class="email-form">
+          <input type="email" placeholder="${pageData.emailPlaceholder}">
+          <button class="start-button">${pageData.buttonText}</button>
+      </div>
+      <div class="image-container">
+          <img src="${pageData.image.src}" alt="${pageData.image.alt}" width="800" height="400">
+      </div>
+  `;
+}
+
+
+window.onload = renderContent;
+
+/*--------------------------------*/
+const services = [
+  {
+      icon: "fas fa-clock",
+      title: "Fast workmanship, precise consultation",
+      description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+  },
+  {
+      icon: "fas fa-dollar-sign",
+      title: "Lower prices with lots of variety",
+      description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+  },
+  {
+      icon: "fas fa-chart-bar",
+      title: "Detailed analysis of sales graph data",
+      description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+  },
+  {
+      icon: "fas fa-sitemap",
+      title: "Management and strategy consultant",
+      description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+  },
+  {
+      icon: "fas fa-comment-alt",
+      title: "Communicative with ease of discussion",
+      description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+  },
+  {
+      icon: "fas fa-check-circle",
+      title: "Open for feedback and review",
+      description: "If you are a business owner looking to improve the quality and efficiency of the production process, operations consultants can be the right choice to help you find new."
+  }
+];
+
+const cardGrid = document.getElementById('card-grid');
+
+services.forEach(service => {
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  card.innerHTML = `
+      <div class="card-icon"><i class="${service.icon}"></i></div>
+      <h3 class="card-title">${service.title}</h3>
+      <p class="card-description">${service.description}</p>
+  `;
+
+  cardGrid.appendChild(card);
+});
+
+/*--------------------------------*/
+const experienceData = {
+  tagline: "Why Us?",
+  title: "We Have a Lot of <span class='highlight'>Experience</span> in Work",
+  summary: "UpConslt as a leading business consulting place, we have helped many small to medium and large companies to help their business",
+  achievements: [
+      { value: 1200, metric: "Projects Completed" },
+      { value: 20, metric: "Year of Experience" },
+      { value: 55, metric: "New Brand" },
+      { value: 14, metric: "Awwards Won" }
+  ]
+};
+
+
+document.getElementById('tagline').textContent = experienceData.tagline;
+document.querySelector('.why-us h1').innerHTML = experienceData.title;
+document.getElementById('description').textContent = experienceData.summary;
+
+
+const statsContainer = document.getElementById('stats-container');
+experienceData.achievements.forEach((achievement, index) => {
+  const statItem = document.createElement('div');
+  statItem.className = 'stat-item';
+  statItem.style.transitionDelay = `${0.6 + index * 0.2}s`;
+  statItem.innerHTML = `
+      <div class="number">${achievement.value}</div>
+      <div class="label">${achievement.metric}</div>
+  `;
+  statsContainer.appendChild(statItem);
+});
+
+
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+  setTimeout(() => {
+      document.querySelector('.why-us').classList.add('animate');
+      document.getElementById('description').classList.add('animate');
+      document.querySelectorAll('.stat-item').forEach(item => {
+          item.classList.add('animate');
       });
+  }, 100);
+});
 
-      const passwordField = document.createElement("div");
-      passwordField.className = "password-field";
 
-      const passwordInput = document.createElement("input");
-      passwordInput.type = "password";
-      passwordInput.placeholder = "Enter password";
-      passwordInput.required = true;
+function animateValue(obj, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start);
+      if (progress < 1) {
+          window.requestAnimationFrame(step);
+      }
+  };
+  window.requestAnimationFrame(step);
+}
 
-      const togglePassword = document.createElement("span");
-      togglePassword.className = "toggle-password";
-      togglePassword.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-        </svg>
-      `;
+const numberElements = document.querySelectorAll('.number');
+numberElements.forEach((numberElement, index) => {
+  const finalValue = experienceData.achievements[index].value;
+  setTimeout(() => {
+      animateValue(numberElement, 0, finalValue, 2000);
+  }, 1000 + index * 200);
+});
 
-      togglePassword.addEventListener("click", () => {
-        if (passwordInput.type === "password") {
-          passwordInput.type = "text";
-          togglePassword.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
-            </svg>
-          `;
-        } else {
-          passwordInput.type = "password";
-          togglePassword.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-            </svg>
-          `;
-        }
-      });
+/*--------------------------------*/
+const data = {
+  label: "Features",
+  title: "What are The Best Features You Get?",
+  description:
+    "With our integrated CRM, project management, collaboration and invoicing capabilities, you can manage every aspect of your business.",
+  features: [
+    {
+      icon: "fas fa-headphones",
+      title: "Directly guided by professionals",
+      description:
+        "General advice on professional practice in conference interpreting, with the aim of.",
+    },
+    {
+      icon: "fa fa-video-camera",
+      title: "Monitor business changes",
+      description:
+        "For assessing your change management success. It ease recording and assessing data.",
+    },
+    {
+      icon: "fa fa-rocket",
+      title: "Full consultation",
+      description:
+        "Consultees can take advantage of the full consultation period to prepare considered.",
+    },
+  ],
+};
 
-      passwordField.appendChild(passwordInput);
-      passwordField.appendChild(togglePassword);
+document.querySelector(".section-tag").textContent = data.label;
+document.querySelector(".main-heading").textContent = data.title;
+document.querySelector(".intro-text").textContent = data.description;
 
-      const forgotPassword = document.createElement("a");
-      forgotPassword.className = "forgot-password";
-      forgotPassword.href = "#";
-      forgotPassword.textContent = data.forgotPasswordText;
+const featureList = document.querySelector(".feature-list");
 
-      passwordField.appendChild(forgotPassword);
-      form.appendChild(passwordField);
+data.features.forEach((feature, index) => {
+  const featureBox = document.createElement("div");
+  featureBox.classList.add("feature-box");
 
-      const rememberMe = document.createElement("div");
-      rememberMe.className = "remember-me";
+  const featureIcon = document.createElement("div");
+  featureIcon.classList.add("feature-icon");
+  featureIcon.innerHTML = `<i class="${feature.icon}"></i>`;
 
-      const switchLabel = document.createElement("label");
-      switchLabel.className = "switch";
+  const featureDetails = document.createElement("div");
+  featureDetails.classList.add("feature-details");
 
-      const rememberMeCheckbox = document.createElement("input");
-      rememberMeCheckbox.type = "checkbox";
-      rememberMeCheckbox.id = "remember-me";
+  const featureTitle = document.createElement("h3");
+  featureTitle.textContent = feature.title;
 
-      const slider = document.createElement("span");
-      slider.className = "slider";
+  const featureDescription = document.createElement("p");
+  featureDescription.textContent = feature.description;
 
-      switchLabel.appendChild(rememberMeCheckbox);
-      switchLabel.appendChild(slider);
+  featureDetails.appendChild(featureTitle);
+  featureDetails.appendChild(featureDescription);
+  featureBox.appendChild(featureIcon);
+  featureBox.appendChild(featureDetails);
 
-      const rememberMeLabel = document.createElement("label");
-      rememberMeLabel.htmlFor = "remember-me";
-      rememberMeLabel.textContent = data.rememberMeText;
+  featureList.appendChild(featureBox);
 
-      rememberMe.appendChild(switchLabel);
-      rememberMe.appendChild(rememberMeLabel);
-      form.appendChild(rememberMe);
+  setTimeout(() => {
+    featureBox.style.opacity = "1";
+    featureBox.style.transform = "translateY(0)";
+  }, 800 + index * 200);
+});
 
-      const signInButton = document.createElement("button");
-      signInButton.className = "sign-in-btn";
-      signInButton.type = "submit";
-      signInButton.textContent = data.signInButtonText;
+setTimeout(() => {
+  document.querySelector(".image-section").classList.add("visible");
+}, 1200);
 
-      const googleButton = document.createElement("button");
-      googleButton.className = "google-btn";
-      googleButton.type = "button";
+/*--------------------------------*/
+const featureData = {
+  tag: "More Features",
+  title: "Take Advantage of The Features You Get From Us!",
+  description:
+    "Analysis describes the features, advantages and benefits of a product, and how they work together to help differentiate a product within the market.",
+  buttonText: "Get Started",
+  imageSrc:
+    "assets/[UP-16]/image (4).svg",
+  imageAlt:
+    "Two people in an office setting looking at a laptop screen showing a video conference call. One person is standing and one is sitting at a wooden desk with a glass of water nearby. The laptop appears to be showing multiple participants in a virtual meeting.",
+};
 
-      const googleIcon = document.createElement("img");
-      googleIcon.src =
-        "assets/[UP-26]/Other-Pay-Method.svg";
-      googleIcon.alt = "Google logo";
-      googleIcon.width = 18;
-      googleIcon.height = 18;
 
-      googleButton.appendChild(googleIcon);
-      googleButton.appendChild(document.createTextNode(data.googleButtonText));
+document.getElementById("feature-tag").textContent = featureData.tag;
+document.getElementById("feature-title").textContent = featureData.title;
+document.getElementById("feature-description").textContent =
+  featureData.description;
+document.getElementById("feature-button").textContent =
+  featureData.buttonText;
+document.getElementById("feature-image").src = featureData.imageSrc;
+document.getElementById("feature-image").alt = featureData.imageAlt;
 
-      const footer = document.createElement("div");
-      footer.className = "footer";
-      footer.innerHTML = `${data.footerText} <a href="${data.footerLinkHref}">${data.footerLinkText}</a>`;
 
-      form.appendChild(signInButton);
-      form.appendChild(googleButton);
-      form.appendChild(footer);
+window.addEventListener("load", () => {
+  const showcase = document.getElementById("feature-showcase");
+  showcase.classList.add("visible");
+});
+/*--------------------------------*/
+const pricingPlans = [
+  {
+      name: "Team",
+      price: "$50",
+      duration: "/mth",
+      description: "Consultation guidance from certified professionals.",
+      features: [
+          "Professional expert guidance",
+          "12 hours discussion",
+          "Live view of business"
+      ]
+  },
+  {
+      name: "Agency",
+      price: "$150",
+      duration: "/mth",
+      description: "The best consulting guidance, discussion anytime.",
+      features: [
+          "Professional expert guidance",
+          "18 hours discussion",
+          "Live view of business"
+      ]
+  },
+  {
+      name: "Enterprise",
+      price: "$500",
+      duration: "/mth",
+      description: "Full guidance consultation, get access to all features.",
+      features: [
+          "Professional expert guidance",
+          "24 hours discussion",
+          "Live view of business"
+      ]
+  }
+];
 
-      formSection.appendChild(logo);
-      formSection.appendChild(title);
-      formSection.appendChild(form);
+const pricingContainer = document.getElementById('pricing-container');
 
-      container.appendChild(imageSection);
-      container.appendChild(formSection);
+pricingPlans.forEach(plan => {
+  const card = document.createElement('div');
+  card.className = 'pricing-card';
 
-      app.appendChild(container);
+  card.innerHTML = `
+      <div class="plan-name">${plan.name}</div>
+      <div class="price">${plan.price}<span>${plan.duration}</span></div>
+      <div class="plan-description">${plan.description}</div>
+      <ul class="features">
+          ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
+      </ul>
+      <button class="get-started-pricing">Get Started</button>
+  `;
+
+  pricingContainer.appendChild(card);
+});
+
+/*--------------------------------*/
+const faqData = [
+  {
+      question: "What is subscription pricing or a subscription-based pricing model?",
+      answer: "Subscription pricing is a business model where customers pay a recurring fee at regular intervals (e.g., monthly or annually) to access a product or service. This model provides ongoing value to customers and a steady revenue stream for businesses."
+  },
+  {
+      question: "Why adopt a subscription business model?",
+      answer: "One, it attracts more customers with its lower entry point (e.g. paying $15 monthly vs. $150 in advance). Two, it offers predictable revenue for businesses. Three, it allows businesses to build stronger, more valuable relationships with its customers."
+  },
+  {
+      question: "How does a subscription management model work?",
+      answer: "A subscription management model involves setting up recurring billing cycles, managing customer accounts, handling upgrades/downgrades, and providing ongoing value to retain subscribers. It often includes features like automated payments, usage tracking, and customer support systems."
+  }
+];
+
+const faqContainer = document.getElementById('faq-container');
+
+faqData.forEach((item, index) => {
+  const faqItem = document.createElement('div');
+  faqItem.classList.add('faq-item');
+  if (index === 1) faqItem.classList.add('active');
+
+  faqItem.innerHTML = `
+      <div class="faq-question">
+          ${item.question}
+          <span class="arrow">›</span>
+      </div>
+      <div class="faq-answer">${item.answer}</div>
+  `;
+
+  faqItem.addEventListener('click', () => {
+      faqItem.classList.toggle('active');
+  });
+
+  faqContainer.appendChild(faqItem);
+});
+/*--------------------------------*/
+const cosmicData = {
+  logo: "UpConslt",
+  description: "We are the best business consulting services that have been operating for more than 20 years, handling many well-known brands",
+  menus: [
+      {
+          title: "Services",
+          items: ["Business Start-up", "Small Business", "Digital Business"]
+      },
+      {
+          title: "Info",
+          items: ["Client", "Event", "Careers"]
+      },
+      {
+          title: "Contact",
+          items: ["South Jakarta - Indonesia", "+0828-2267-9981", "contact@upconslt.com"]
+      }
+  ],
+  footer: "© 2022 UpConslt. All rights reserved."
+};
+
+document.getElementById('logo').textContent = cosmicData.logo;
+document.getElementById('description').textContent = cosmicData.description;
+document.getElementById('menuContainer').innerHTML = cosmicData.menus.map(menu => `
+  <div class="constellation-column">
+      <div class="starcluster-title">${menu.title}</div>
+      <ul class="star-system-list">
+          ${menu.items.map(item => `<li><a href="#">${item}</a></li>`).join('')}
+      </ul>
+  </div>
+`).join('');
+document.getElementById('footer').innerHTML = cosmicData.footer.replace(
+  "UpConslt",
+  '<span class="quasar-highlight">UpConslt</span>'
+);
